@@ -9,7 +9,8 @@ var cantidadHijos = prompt("Ingrese la cantidad de hijos menores de 21 años:", 
 
 const precioBase = 250;
 
-comision = precioBase * 0.30;
+const comision = precioBase * 0.30;
+
 
     /* El siguiente es un comentario.
     Por favor no elimine los caracteres // que se encuentran al inicio.
@@ -35,7 +36,7 @@ comision = precioBase * 0.30;
 
     // Recargos por edad
 
-    if (edad > 18 && edad < 21){document.write("No se aplican recargos edad entre 18 y 21")}
+    if (edad > 18 && edad < 21){document.write(recargoEdad = 0)}
      else if (edad >= 21 && edad < 25){recargoEdad = precioBase * 0.01}
      else if (edad >= 25 && edad < 30){recargoEdad = precioBase * 0.02}
      else if (edad >= 30 && edad < 40){recargoEdad = precioBase * 0.05}
@@ -46,22 +47,24 @@ comision = precioBase * 0.30;
      
      console.log(recargoEdad)
 
-    // Recargos por conyugue
-    if (conyugue == "si"){edadConyugue = prompt("ingrese la edad del conyugue ")}
+    // Recargos por conyuge
 
-    if (edadConyugue < 30){recargoConyugue = precioBase * 0.01}
-     else if (edadConyugue >= 30 && edadConyugue < 40){recargoConyugue = precioBase * 0.02}
-     else if (edadConyugue >= 40 && edadConyugue < 50){recargoConyugue = precioBase * 0.03}
-     else if (edadConyuuge >= 50 && edadConyugue < 70){recargoConyugue = precioBase * 0.05}
+    if (conyuge == "si"){edadConyuge = prompt("ingrese la edad del conyugue ")}
+
+    if (edadConyuge < 30){recargoConyuge = precioBase * 0.01}
+     else if (edadConyuge >= 30 && edadConyuge < 40){recargoConyuge = precioBase * 0.02}
+     else if (edadConyuge >= 40 && edadConyuge < 50){recargoConyuge = precioBase * 0.03}
+     else if (edadConyuuge >= 50 && edadConyuge < 70){recargoConyuge = precioBase * 0.05}
      
-     console.log(recargoConyugue)
+     console.log("la edad del conyugue es " + edadConyuge)
+     console.log("los recargos por conyugue son " + recargoConyuge)
 
      // Recargos por cantidad de Hijos
       recargoHijos = (precioBase * 0.01) * cantidadHijos
 
-      console.log(recargoHijos)
+      console.log("Los recargos por hijos son " + recargoHijos)
 
-recargos = recargoEdad + recargoConyugue + recargoHijos;
+recargos = recargoEdad + recargoConyuge + recargoHijos;
 
 
 totalPagar = precioBase + comision + recargos;
