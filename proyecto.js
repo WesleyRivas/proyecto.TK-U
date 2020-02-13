@@ -18,19 +18,19 @@ const comision = precioBase * 0.30;
     Puede crear la cantidad de variables necesarias para calcular cada uno
     de los recargos que sean necesarios */
 
-    // Calculo Edad (lo investigue)
+    // Calculo Edad (lo investigue y no tengo claro como funciona.)
 
-    function calculateAge(birthday) {
-        var birthday_arr = birthday.split("/");
-        var birthday_date = new Date(birthday_arr[2], birthday_arr[1] - 1, birthday_arr[0]);
-        var ageDifMs = Date.now() - birthday_date.getTime();
-        var ageDate = new Date(ageDifMs);
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    function calcularEdad(anios) {
+        var nacimiento = anios.split("/");
+        var datoNacimiento = new Date(nacimiento[2], nacimiento[1] - 1, nacimiento[0]);
+        var diferencia = Date.now() - datoNacimiento.getTime();
+        var edadDato = new Date(diferencia);
+        return Math.abs(edadDato.getUTCFullYear() - 1970);
     }
     
-    var edad = calculateAge(diaNacimiento+"/"+mesNacimiento+"/"+anioNacimiento);
+    var edad = calcularEdad(diaNacimiento+"/"+mesNacimiento+"/"+anioNacimiento);
     
-    console.log(edad)
+    console.log("Su edad es " + edad)
     
 
 
@@ -43,7 +43,7 @@ const comision = precioBase * 0.30;
      else if (edad >= 40 && edad < 50){recargoEdad = precioBase * 0.08}
      else if (edad >= 50 && edad < 65){recargoEdad = precioBase * 0.12}
      else if (edad >= 65){document.write("No se le puede asegurar su edad es mayor a 65")}
-     else {document.write("No se le puede asegurar usted no es mayor de 18 anos")}
+     else {document.write("No se le puede asegurar usted no es mayor de 18 anios")}
      
      console.log(recargoEdad)
 
@@ -68,4 +68,16 @@ recargos = recargoEdad + recargoConyuge + recargoHijos;
 
 
 totalPagar = precioBase + comision + recargos;
-document.write(totalPagar);
+
+// Datos del cliente, desglose y total a pagar
+
+document.write("Bienvenidos a seguros TK-U <br><br>" +
+                "Muchas Gracias " + nombreCompleto + " Por Preferirnos<br>" +
+                "Los cargos aplicados son: <br>" +
+                "Precio Base:------------ Q. " + precioBase + "<br>" +
+                "Comision:--------------- Q. " + comision + "<br>" +
+                "Cargos por Edad:------- Q. " + recargoEdad + "<br>" + 
+                "Cargos por Conyuge:-- Q. " + recargoConyuge + "<br>" + 
+                "Cargos por Hijo:-------- Q. " + recargoHijos + "<br>" +
+                "-------------------------------------------<br>" + 
+                "Total a Pagar:-------------Q. " + totalPagar )
