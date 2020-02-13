@@ -50,11 +50,16 @@ const comision = precioBase * 0.30;
     // Recargos por conyuge
 
     if (conyuge == "si"){edadConyuge = prompt("ingrese la edad del conyugue ")}
-
-    if (edadConyuge < 30){recargoConyuge = precioBase * 0.01}
+        else {edadConyuge = 0}
+    
+        
+    
+    if (edadConyuge > 0 && edadConyuge < 30){recargoConyuge = precioBase * 0.01}
      else if (edadConyuge >= 30 && edadConyuge < 40){recargoConyuge = precioBase * 0.02}
      else if (edadConyuge >= 40 && edadConyuge < 50){recargoConyuge = precioBase * 0.03}
-     else if (edadConyuuge >= 50 && edadConyuge < 70){recargoConyuge = precioBase * 0.05}
+     else if (edadConyuge >= 50 && edadConyuge < 70){recargoConyuge = precioBase * 0.05}
+     else if (edadConyuge == 0){recargoConyuge = 0}
+     
      
      console.log("la edad del conyugue es " + edadConyuge)
      console.log("los recargos por conyugue son " + recargoConyuge)
