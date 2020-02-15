@@ -5,7 +5,7 @@ var anioNacimiento = prompt("Ingrese el año de nacimiento", "Ejemplo: Si nació
 
 var conyuge = prompt("¿Tiene cónyuge?", "SI/NO");
 var hijos = prompt("¿Tiene hijos?", "SI/NO");
-var cantidadHijos = prompt("Ingrese la cantidad de hijos menores de 21 años:", "Por favor ingrese únicamente números");
+
 
 const precioBase = 250;
 
@@ -65,6 +65,9 @@ const comision = precioBase * 0.30;
      console.log("los recargos por conyugue son " + recargoConyuge)
 
      // Recargos por cantidad de Hijos
+     if (hijos == "si"){cantidadHijos = prompt("ingrese la cantidad de hijos menores de 21 años:", "Por favor ingrese únicamente números");}
+        else {cantidadHijos = 0}
+
       recargoHijos = (precioBase * 0.01) * cantidadHijos
 
       console.log("Los recargos por hijos son " + recargoHijos)
